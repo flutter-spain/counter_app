@@ -6,6 +6,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      int counter = 0;
+
       return Scaffold(
         appBar: AppBar(
           title: const Text('Home Screen'),
@@ -20,9 +22,9 @@ class HomeScreen extends StatelessWidget {
                   const Text(
                     'Números de Clicks:',
                   ),
-                  const Text(
-                    '0',
-                    style: TextStyle(
+                  Text(
+                    '$counter',
+                    style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                     ),
@@ -30,14 +32,16 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            // Add your onPressed code here!
-            
+            counter++;
+            print('Hola: $counter');
           },
           tooltip: 'Incrementar',
           child: const Icon(Icons.add),
         ),
+        
       );
   }
 }
